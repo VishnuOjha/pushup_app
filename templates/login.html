@@ -13,6 +13,28 @@
           <input type="password" name="password" class="form-control" id="exampleInputPassword1">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+        {% for todo in loginUser %}
+      <tr>
+        <th scope="row">{{loop.index}}</th>
+        <td>{{todo.name}}</td>
+        <td>{{todo.email}}</td>
+        <td>{{todo.date_created}}</td>
+        <td>
+          <a
+            href="/update/{{todo.sno}}"
+            type="button"
+            class="btn btn-dark btn-sm"
+            >Update</a
+          >
+          <a
+            href="/delete/{{todo.sno}}"
+            type="button"
+            class="btn btn-dark btn-sm"
+            >Delete</a
+          >
+        </td>
+      </tr>
+      {% endfor %}
       </form>
     </div>
 {% endblock body%}
